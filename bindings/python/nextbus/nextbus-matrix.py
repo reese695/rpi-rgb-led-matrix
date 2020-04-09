@@ -16,6 +16,7 @@ options = RGBMatrixOptions()
 options.rows = 32
 options.chain_length = 2
 options.parallel = 1
+options.gpio_slowdown = 4
 options.hardware_mapping = 'adafruit-hat'  # If you have an Adafruit HAT: 'adafruit-hat'
 
 matrix = RGBMatrix(options = options)
@@ -38,7 +39,7 @@ midTime        = 10  # Times less than this are displayed yellow
 
 width          = 64  # Matrix size (pixels) -- change for different matrix
 height         = 32  # types (incl. tiling).  Other code may need tweaks.
-fps            = 20  # Scrolling speed (ish)
+fps            = 8  # Scrolling speed (ish)
 
 routeColor     = (255, 255, 255) # Color for route labels (usu. numbers)
 descColor      = (110, 110, 110) # " for route direction/description
@@ -185,4 +186,4 @@ while True:
 	prevTime = currentTime
 
 	# Offscreen buffer is copied to screen
-	matrix.SetImage(image.im.id, 0, 0)
+	matrix.SetImage(image, 0, 0)
